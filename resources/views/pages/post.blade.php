@@ -1,8 +1,7 @@
-
 @extends('layouts.master')
 @section('content')
     <h2>{{ $post->title }}</h2>
-    <p>By. Ahadan in <a href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a></p>
+    <p>By. <a href="#" class="text-decoration-none">{{ $post->user->name }}</a> in <a class="text-decoration-none" href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a></p>
     {!! $post->body !!}
 @endsection
 
