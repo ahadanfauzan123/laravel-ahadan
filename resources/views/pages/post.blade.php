@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <h2>{{ $post->title }}</h2>
-    <p>By. <a href="#" class="text-decoration-none">{{ $post->user->name }}</a> in <a class="text-decoration-none" href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a></p>
+    <p>By. <a href="/author/{{ $post->author->user_name }}" class="text-decoration-none">{{ $post->author->name }}</a> in <a class="text-decoration-none" href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a></p>
     {!! $post->body !!}
 @endsection
 

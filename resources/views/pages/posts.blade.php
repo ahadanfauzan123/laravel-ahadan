@@ -7,7 +7,7 @@
 <article class="mb-4 mt-4 mx-2 border-bottom pb-4">
     <div class="card border-none  bg-light text-dark">
         <h5 class="card-header">
-          <p>By <a href="#" class="text-decoration-none">{{ $p->user->name }}</a> in <a class="text-decoration-none" href="categories/{{ $p->category->slug }}">{{ $p->category->name }}</a></p>
+          <p>By <a href="/author/{{ $p->author->user_name }}" class="text-decoration-none">{{ $p->author->name }}</a> in <a class="text-decoration-none" href="categories/{{ $p->category->slug }}">{{ $p->category->name }}</a></p>
         </h5>
         <div class="card-body">
           <h5 class="card-title">{{ $p->title}}</h5>
