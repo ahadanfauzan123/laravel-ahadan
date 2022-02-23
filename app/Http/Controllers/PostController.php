@@ -10,7 +10,7 @@ class PostController extends Controller
     //
     public function index() {
         //Post::all() berarti mengambil semua data dari table Post dari database dan dikirimkan ke pages.posts
-        return view('pages.posts', ["title" => "blog", "posts" => Post::latest()->get()]);
+        return view('pages.posts', ["title" => "blog", "posts" => Post::with(['author', 'category'])->latest()->get()]);
     }
     //mengambil parameter dari tag button di view lalu mengambil informasi dari table Post berdasarkan parameter id dengan Post::find($id)
     public function show( Post $post) {
