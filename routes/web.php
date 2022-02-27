@@ -6,6 +6,8 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +44,7 @@ Route::get('/categories', [CategoryController::class, "index"]);
 Route::get('/categories/{category:slug}', [CategoryController::class, "show"]);
 
 Route::get('/author/{author:user_name}', [UserController::class, 'index']);
+
+//halaman login
+Route::get('/login', [LoginController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index']);

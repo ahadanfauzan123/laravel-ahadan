@@ -23,6 +23,14 @@
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
               </li> --}}
             </ul>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a href="/login" class="nav-link active"><i class="bi bi-box-arrow-in-right"></i> Sign In</a>
+              </li>
+              <li class="nav-item">
+                <a href="/register" class=" btn btn-primary btn-sm nav-link active">Sign up</a>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
