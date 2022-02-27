@@ -20,6 +20,8 @@ class Post extends Model
     //menunjukkan field mana yang tidak boleh diisi
     protected $guarded = ['id'];
 
+    protected $with = ['category', 'author'];
+
     public function category() {
         return $this::belongsTo(Category::class);
     }

@@ -11,6 +11,7 @@ class CategoryController extends Controller
     public function index() {
         return view('pages.categories', [
             "title" => "categories",
+            "isActive" => "categories",
             "categories" => Category::all(),
         ]);
     }
@@ -18,8 +19,9 @@ class CategoryController extends Controller
     public function show(Category $category) {
         return view('pages.posts', [
             "title" => $category->name,
+            "isActive" => $category->name,
             "posts" => $category->posts->load('author', 'category'),
-            "category" => $category->name
+            // "category" => $category->name
         ]);
     }
 }

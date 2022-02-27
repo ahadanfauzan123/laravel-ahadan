@@ -11,6 +11,7 @@ class UserController extends Controller
     public function index(User $author) {
         return view('pages.posts', [
             'title' => 'User Post',
+            "isActive" => "user",
             'posts' => $author->post->load('author', 'category')
         ]);
     }

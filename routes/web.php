@@ -19,11 +19,15 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('pages.index', ["title" => "home"]);
+    return view('pages.index', [
+        "title" => "home",
+        "isActive" => "home"
+    ]);
 });
 Route::get('/about', function() {
     return view('pages.about', [
         "title" => "about",
+        "isActive" => "about",
         "name" => "Muhammad Ahadan",
         "email" => "ahadanfauzan123@gmail.com"
     ]);

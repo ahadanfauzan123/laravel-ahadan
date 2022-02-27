@@ -1,5 +1,5 @@
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-danger sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background: rgba(0, 0, 0, 0.7)">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
@@ -8,16 +8,16 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link {{ $title === 'home' ? 'active' : '' }}" aria-current="page" href="/">Home</a>
+                <a class="nav-link {{ $isActive === 'home' ? 'active' : '' }}" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ $title === 'about' ? 'active' : '' }}" href="/about">about</a>
+                <a class="nav-link {{ $isActive === 'about' ? 'active' : '' }}" href="/about">about</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ $title === 'categories' ? 'active' : '' }}" href="/categories">categories</a>
+                <a class="nav-link {{ $isActive === 'categories' ? 'active' : '' }}" href="/categories">categories</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ $title === 'blog' ? 'active' : '' }}" href="/blog">posts</a>
+                <a class="nav-link {{ $isActive === 'blog' ? 'active' : '' }}" href="/blog">posts</a>
               </li>
               {{-- <li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>

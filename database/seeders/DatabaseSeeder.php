@@ -31,6 +31,10 @@ class DatabaseSeeder extends Seeder
             'name' => 'Gaming',
             'slug' => 'gaming'
         ]);
+        Category::create([
+            'name' => 'Crypto',
+            'slug' => 'crypto'
+        ]);
 
         // Post::factory(20)->create();
          Post::factory(20)->create();

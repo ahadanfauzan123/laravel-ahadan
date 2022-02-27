@@ -2,20 +2,50 @@
 @extends('layouts.master')
 
 @section('content')
-@foreach ($posts as $p)
 
-<article class="mb-4 mt-4 mx-2 border-bottom pb-4">
-    <div class="card border-none  bg-light text-dark">
-        <h5 class="card-header">
-          <p>By <a href="/author/{{ $p->author->user_name }}" class="text-decoration-none">{{ $p->author->name }}</a> in <a class="text-decoration-none" href="categories/{{ $p->category->slug }}">{{ $p->category->name }}</a></p>
-        </h5>
-        <div class="card-body">
-          <h5 class="card-title">{{ $p->title}}</h5>
-          <h6>{{ $p->excerpt }}</h6>
-          <a href="/blog/{{ $p->slug }}" class="btn btn-primary text-decoration-none">Go somewhere</a>
-        </div>
+
+@if ($posts->count() > 0)
+   
+    <div class="card mb-3">
+      <img src="https://source.unsplash.com/1200x400/?{{ $posts[0]->category->name }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">{{ $posts[0]->title }}</h3>
+        <small>
+            <a href="author/{{ $posts[0]->slug }}" class="text-decoration-none">{{ $posts[0]->author->name }}</a>
+            in <a href="categories/{{ $posts[0]->category->slug }}" class="text-decoration-none">{{ $posts[0]->category->name }}</a>
+             {{ $posts[0]->created_at->diffForHumans() }}
+        </small>
+        <p class="card-text">{{ $posts[0]->excerpt }}</p>
+        <a href="blog/{{ $posts[0]->slug }}" class="text-decoration-none btn btn-primary">Read More</a>
       </div>
-</article>
-@endforeach
-    <h2></h2>
+    </div>
+@else
+    <p class="text-center fs-4">No posts found.</p>
+@endif
+
+<div class="container">
+  <div class="row">
+    @foreach ($posts->skip(1) as $p)
+    <div class="col-md-4 mb-3">
+      <div class="card" style="width: 18rem; height:25rem;">
+        <div class="position-absolute bg-dark p-1 rounded-end text-white">
+          <a href="categories/{{ $p->category->slug }}" class="text-decoration-none text-white">{{ $p->category->name }}</a>
+        </div>
+        <img src="https://source.unsplash.com/500x400/?{{ $p->category->name }}" class="card-img-top" alt="{{ $p->category->name }}">
+        <h5 class="card-title">{{ $p->title }}</h5>
+        <div class="card-body" style="overflow-y: scroll; overflow-x: hidden;">
+          <small>
+            <a href="author/{{ $p->slug }}" class="text-decoration-none">{{ $p->author->name }}</a>
+            {{ $posts[0]->created_at->diffForHumans() }}
+          </small>
+          <p class="card-text">{{ $p->excerpt }}</p>
+        </div>
+          <a href="blog/{{ $p->slug }}" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    
+    @endforeach
+  </div>
+</div>
+
 @endsection
