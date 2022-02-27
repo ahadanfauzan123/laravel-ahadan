@@ -7,7 +7,7 @@
             <h2>{{ $post->title }}</h2>
             <img src="https://source.unsplash.com/1200x800/?{{ $post->category->name }}" class="img-fluid" alt="{{ $post->category->name }}">
         
-            <p>By. <a href="/author/{{ $post->author->user_name }}" class="text-decoration-none">{{ $post->author->name }}</a> in <a class="text-decoration-none" href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a></p>
+            <p>By. <a href="/blog?author={{ $post->author->user_name }}" class="text-decoration-none">{{ $post->author->name }}</a> in <a class="text-decoration-none" href="/blog?category={{ $post->category->slug }}">{{ $post->category->name }}</a></p>
             <article class="my-3">
                 {!! $post->body !!}
             </article>
