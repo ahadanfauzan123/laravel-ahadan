@@ -11,13 +11,6 @@ class PostController extends Controller
 {
     //
     public function index() {
-        
-        // $posts = Post::latest();
-        // if(request('search')) {
-        //     $posts->where('title', 'like', '%' . request('search') . '%')
-        //     ->orWhere('body', 'like', '%' . request('search') . '%')
-        //     ->orWhere('excerpt', 'like', '%' .request('search') . '%');
-        // }
 
         $title = '';
         if(request('category')) {
@@ -32,9 +25,9 @@ class PostController extends Controller
         return view('pages.posts', [
             "title" => "All Posts".$title,
             "isActive" => "blog",
-            "posts" => Post::latest()->filter(request(['search', 'category', 'author']))->paginate(7)->withQueryString()
+            "posts" => Post::latest()->filter(request(['search', 'category', 'author']))->paginate(10)->withQueryString()
         ]);
-        //filter() berasal dari nama function di model "scopeFilter"
+        //filter() berasal dari nama function di model "scopeFilter" dan paginate menggantikan get
         //request mengambil data dari tag input yang mempunyai atribut name "search"
     }
     //mengambil parameter dari tag button di view lalu mengambil informasi dari table Post berdasarkan parameter id dengan Post::find($id)

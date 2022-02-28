@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    //
+
     public function index(User $author) {
         return view('pages.posts', [
             'title' => 'User Post',

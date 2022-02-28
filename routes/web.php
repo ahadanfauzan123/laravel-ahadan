@@ -41,10 +41,13 @@ Route::get('/blog/{post:slug}', [PostController::class, "show"]);
 
 Route::get('/categories', [CategoryController::class, "index"]);
 
-Route::get('/categories/{category:slug}', [CategoryController::class, "show"]);
+//ketika sudah melakukan hubungan di model maka menampilkan singgle post melalui route model binding sudah tidak dibutuhkan
+//maka function dibawah akan dihapus karena single post menuju blog?author=
+// Route::get('/categories/{category:slug}', [CategoryController::class, "show"]);
 
-Route::get('/author/{author:user_name}', [UserController::class, 'index']);
+// Route::get('/author/{author:user_name}', [UserController::class, 'index']);
 
 //halaman login
 Route::get('/login', [LoginController::class, 'index']);
 Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);
